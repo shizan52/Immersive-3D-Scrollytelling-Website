@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.cache/
+__pycache__/
+
+# secrets and visitor data — never commit these
+.env
+data/
+site.draft.json
+
+# private ops docs — deploy scripts and server details never belong in a public repo,
+# even if you bring them back locally later
+deploy.py
+server.md
+report.md
+
+# uploaded images are content, not source; they live on the server
+public/uploads/
+
+# local Claude Code settings — machine-specific, not project source
+.claude/

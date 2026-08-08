@@ -1,0 +1,843 @@
+{
+  "brand": {
+    "ctaHref": "#contact",
+    "ctaLabel": "Get advice",
+    "mark": "⛩",
+    "name": "BD Education Centre",
+    "nameColor": "var(--fg)",
+    "tagline": "Higher education & career in Japan"
+  },
+  "footer": {
+    "columns": [
+      {
+        "html": "Arabian Tower, 849/3 Begum Rokeya Sarani, Shewrapara, Mirpur, Dhaka<br><a href=\"tel:+8801689447591\">+88 01689-447591</a>",
+        "title": "Dhaka Office"
+      },
+      {
+        "html": "Kazi Bhavan, Nathullabad, C&amp;B Road, Tematha Kazipara, Barishal<br><a href=\"tel:+8801689447591\">+88 01689-447591</a>",
+        "title": "Barishal Office"
+      },
+      {
+        "html": "2-4-32-206 Nishiaoki, Kawaguchi-Shi, Saitama-ken, Japan",
+        "title": "Tokyo Office"
+      },
+      {
+        "html": "<a href=\"mailto:bdeducationcentre748@gmail.com\">bdeducationcentre748@gmail.com</a><br><a href=\"https://www.bdeducationcenter.online\">www.bdeducationcenter.online</a>",
+        "title": "Contact"
+      }
+    ],
+    "legal": "BD Education Centre — Higher Education, Employment & Permanent Residency in Japan"
+  },
+  "hero": {
+    "hint": "Scroll",
+    "mode": "3d",
+    "panels": [
+      {
+        "buttons": [
+          {
+            "style": "primary",
+            "target": "consult"
+          },
+          {
+            "style": "ghost",
+            "target": "workVisa"
+          }
+        ],
+        "eyebrow": "Bangladesh to Japan",
+        "frame": "soft",
+        "id": "hero-intro",
+        "kind": "image",
+        "position": "left",
+        "src": "",
+        "sub": "From Student Visa to Work Visa (Engineer, SSW, TITP) — BD Education Centre is your trusted guide through every step, from choosing an institution to holding your visa, employment, and permanent residency.",
+        "title": "<span class=\"hl\">Higher Education</span> in Japan, Employment & <span class=\"hl\">Permanent Residency</span>"
+      },
+      {
+        "buttons": [
+          {
+            "style": "primary",
+            "target": "register"
+          }
+        ],
+        "eyebrow": "桜 · とりい",
+        "eyebrowLang": "ja",
+        "id": "hero-reveal",
+        "kind": "video",
+        "position": "center",
+        "src": "",
+        "sub": "Through the torii gate lies a path of new possibility — we're with you at every step.",
+        "title": "Your Japan Journey<br><span class=\"hl\">Starts Right Here</span>"
+      }
+    ]
+  },
+  "nav": [
+    {
+      "href": "#about",
+      "label": "About Us"
+    },
+    {
+      "href": "#reviews",
+      "label": "Experiences"
+    },
+    {
+      "href": "#work-visa",
+      "label": "Work Visa"
+    },
+    {
+      "href": "#student-visa",
+      "label": "Student Visa"
+    },
+    {
+      "href": "#fees",
+      "label": "Course Fees"
+    },
+    {
+      "href": "#process",
+      "label": "Process"
+    },
+    {
+      "href": "#faq",
+      "label": "FAQ"
+    },
+    {
+      "href": "#media",
+      "label": "Recent"
+    },
+    {
+      "href": "#offices",
+      "label": "Offices"
+    },
+    {
+      "href": "/register.html",
+      "label": "Register"
+    },
+    {
+      "href": "#contact",
+      "label": "Contact"
+    }
+  ],
+  "register": {
+    "error": "Sorry, could not send. Please call +88 01689-447591 directly",
+    "eyebrow": "Registration",
+    "fields": {
+      "female": "Female",
+      "firstName": "First name",
+      "gender": "Gender",
+      "lastName": "Last name",
+      "male": "Male",
+      "phone": "Mobile number"
+    },
+    "sub": "Fill in the details below — we'll get in touch with you shortly.",
+    "submit": "Complete registration",
+    "success": "Thank you! We've received your details — we'll be in touch soon.",
+    "title": "Enter your details"
+  },
+  "sections": [
+    {
+      "animation": "slide-left",
+      "blocks": [
+        {
+          "_k": "40wluz6",
+          "animation": "slide-left",
+          "text": "Why BD Education Centre",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "wfgssq4",
+          "animation": "fade-up",
+          "style": "lead",
+          "text": "<strong>Barishal's first and most recognized</strong> Japan education and visa consultancy — with our own offices in Dhaka, Barishal, and Tokyo, we're with you at every step.",
+          "type": "text"
+        },
+        {
+          "_k": "5r80568",
+          "level": 2,
+          "text": "From Dream to Japan — Complete Support Under One Roof",
+          "type": "heading"
+        },
+        {
+          "_k": "bgivijj",
+          "style": "lead",
+          "text": "Language training, choosing the right institution, visa processing, and after you arrive — employment and permanent residency: experienced guidance at every step.",
+          "type": "text"
+        },
+        {
+          "_k": "bu1pbuy",
+          "items": [
+            {
+              "mark": "技",
+              "markLang": "ja",
+              "src": "",
+              "text": "Engineer/Humanities, SSW, and TITP — choosing and preparing for the right path based on your qualifications.",
+              "title": "Work Visa"
+            },
+            {
+              "mark": "学",
+              "markLang": "ja",
+              "text": "Low tuition fees, 28 hours of part-time work per week, and career opportunities after graduation.",
+              "title": "Student Visa"
+            },
+            {
+              "mark": "語",
+              "markLang": "ja",
+              "text": "Structured Japanese language training targeting JLPT/JFT N5–N4.",
+              "title": "Language Prep"
+            },
+            {
+              "mark": "住",
+              "markLang": "ja",
+              "text": "Step-by-step guidance toward a long-term career and citizenship.",
+              "title": "Permanent Residency"
+            }
+          ],
+          "type": "cards"
+        },
+        {
+          "_k": "w8d5fiz",
+          "animation": "fade-up",
+          "items": [],
+          "type": "buttons"
+        }
+      ],
+      "id": "about",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "o6vo7bj",
+          "text": "Student Experiences",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "9cy7pcf",
+          "level": 2,
+          "text": "Those Who've Already Reached Japan",
+          "type": "heading"
+        },
+        {
+          "_k": "zzrsshr",
+          "style": "lead",
+          "text": "In their own words — students and workers who went through us.",
+          "type": "text"
+        },
+        {
+          "_k": "vawju34",
+          "animation": "fade-up",
+          "columns": 4,
+          "items": [
+            {
+              "height": 1350,
+              "meta": "SSW Visa · Osaka",
+              "name": "Rakib Hasan",
+              "rating": 5,
+              "src": "",
+              "text": "From N4 exam prep to the skill test — they were with me at every step. I'm working in Osaka now, and after a year I'll even have the option to change companies.",
+              "width": 1800
+            },
+            {
+              "meta": "Student Visa · Tokyo",
+              "name": "Sumaiya Akter",
+              "rating": 5,
+              "text": "I enrolled for the April session. From choosing the school to the paperwork — they sorted everything out. Alongside my studies, I work 28 hours a week to cover my expenses."
+            },
+            {
+              "meta": "Engineer Visa · Nagoya",
+              "name": "Tanvir Ahmed",
+              "rating": 5,
+              "text": "I applied with a year of experience after graduating. After three months, I was even able to bring my family over — that's the biggest win for me."
+            },
+            {
+              "meta": "TITP · Fukuoka",
+              "name": "Nusrat Jahan",
+              "rating": 4,
+              "text": "I applied right after finishing SSC, while continuing to learn the language. I was nervous at first, but their prep classes really helped."
+            }
+          ],
+          "type": "reviews"
+        }
+      ],
+      "id": "reviews",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "itq92mk",
+          "text": "Work Visa",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "ii52gsn",
+          "level": 2,
+          "text": "3 Paths to Working in Japan from Bangladesh",
+          "type": "heading"
+        },
+        {
+          "_k": "25tinpu",
+          "style": "lead",
+          "text": "Which visa is right for you depends on your qualifications, age, and language level — details below.",
+          "type": "text"
+        },
+        {
+          "_k": "skziocv",
+          "label": "Type of work visa",
+          "tabs": [
+            {
+              "columns": [
+                {
+                  "accent": "accent",
+                  "items": [
+                    "Graduate / Undergraduate degree",
+                    "At least <strong>1 year</strong> of work experience",
+                    "Minimum <strong>N5</strong> level in Japanese",
+                    "Age range <strong>22–40 years</strong>"
+                  ],
+                  "title": "Requirements"
+                },
+                {
+                  "accent": "gold",
+                  "items": [
+                    "Monthly salary starting from <strong>¥200,000</strong>",
+                    "Bring your spouse (family) after <strong>3 months</strong>",
+                    "Eligible to apply for Japanese citizenship after <strong>5 years</strong>",
+                    "5 working days a week, 2 days off",
+                    "<strong>120 days</strong> of annual leave (including public holidays)"
+                  ],
+                  "title": "Benefits"
+                }
+              ],
+              "heading": "Engineer / Humanities / Int'l Service Visa",
+              "id": "eng",
+              "label": "Engineer / Humanities"
+            },
+            {
+              "columns": [
+                {
+                  "accent": "accent",
+                  "items": [
+                    "Pass Japanese language <strong>N4</strong> level (JLPT/JFT)",
+                    "Pass a <strong>skill test</strong> for the specific job",
+                    "Educational requirement is flexible (minimum SSC pass, to support language learning)",
+                    "Age range <strong>18–35 years</strong>"
+                  ],
+                  "title": "Requirements"
+                },
+                {
+                  "accent": "gold",
+                  "items": [
+                    "SSW-1 visa salary starting from <strong>¥190,000</strong>",
+                    "Opportunity for citizenship after <strong>10 years</strong> of work",
+                    "Opportunity to change companies after <strong>1 year</strong> of work",
+                    "Bring your spouse (family) on an SSW-2 visa"
+                  ],
+                  "title": "Benefits"
+                }
+              ],
+              "heading": "SSW — Specified Skilled Worker Visa",
+              "id": "ssw",
+              "label": "SSW"
+            },
+            {
+              "columns": [
+                {
+                  "accent": "accent",
+                  "items": [
+                    "Pass Japanese language <strong>N5</strong> level (JLPT/NAT)",
+                    "Must continue language study",
+                    "Educational requirement is flexible (minimum SSC pass)",
+                    "Age range <strong>18–35 years</strong>"
+                  ],
+                  "title": "Requirements"
+                },
+                {
+                  "accent": "gold",
+                  "items": [
+                    "Visa validity up to a maximum of <strong>3 years</strong>",
+                    "Salary starting from <strong>¥170,000</strong>",
+                    "Opportunity to change companies after at least 1 year of work"
+                  ],
+                  "title": "Benefits"
+                }
+              ],
+              "heading": "TITP — Technical Intern Training Program Visa",
+              "id": "titp",
+              "label": "TITP"
+            }
+          ],
+          "type": "tabs"
+        },
+        {
+          "_k": "4xq2ck7",
+          "caption": "Comparing the three work visas",
+          "head": [
+            "Category",
+            "Engineer / Humanities",
+            "SSW",
+            "TITP"
+          ],
+          "rows": [
+            [
+              "Language",
+              "N5",
+              "N4 (JLPT/JFT)",
+              "N5 (JLPT/NAT)"
+            ],
+            [
+              "Education",
+              "Graduate / Undergraduate",
+              "SSC+ (flexible)",
+              "SSC+ (flexible)"
+            ],
+            [
+              "Experience",
+              "1 year+",
+              "Skill test",
+              "—"
+            ],
+            [
+              "Age",
+              "22–40",
+              "18–35",
+              "18–35"
+            ],
+            [
+              "Starting salary",
+              "¥200,000",
+              "¥190,000",
+              "¥170,000"
+            ],
+            [
+              "Family",
+              "After 3 months",
+              "On SSW-2",
+              "—"
+            ],
+            [
+              "Citizenship",
+              "Apply after 5 years",
+              "After 10 years",
+              "—"
+            ]
+          ],
+          "type": "table"
+        }
+      ],
+      "id": "work-visa",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "7mf3jr7",
+          "text": "Student Visa",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "rji1ofl",
+          "level": 2,
+          "text": "Studying in Japan — Affordable, with Work Opportunities",
+          "type": "heading"
+        },
+        {
+          "_k": "ett8agi",
+          "style": "lead",
+          "text": "BD Education Centre provides complete support — from institution selection through to holding your visa, and after graduation, for employment and permanent residency.",
+          "type": "text"
+        },
+        {
+          "_k": "0esm630",
+          "columns": [
+            {
+              "accent": "gold",
+              "items": [
+                "Opportunity for employment and permanent residency after graduating",
+                "Very low tuition fees at Japanese schools",
+                "Opportunity to work <strong>28 hours</strong> a week part-time alongside studies",
+                "About <strong>120 hours</strong> of work per month; <strong>¥1000–1200</strong> per hour"
+              ],
+              "title": "Benefits"
+            },
+            {
+              "accent": "accent",
+              "items": [
+                "<strong>April</strong> session",
+                "<strong>July</strong> session",
+                "<strong>October</strong> session"
+              ],
+              "note": "Japan has 3 admission sessions a year — it's best to start preparing your application early.",
+              "title": "Admission Sessions"
+            }
+          ],
+          "type": "columns"
+        }
+      ],
+      "id": "student-visa",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "is8xil3",
+          "text": "Course Fees",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "z70d240",
+          "level": 2,
+          "text": "What It Costs — Stated Clearly",
+          "type": "heading"
+        },
+        {
+          "_k": "butxmqp",
+          "style": "lead",
+          "text": "No hidden costs. Every card states exactly what's included in the fee.",
+          "type": "text"
+        },
+        {
+          "_k": "iz7r50q",
+          "animation": "fade-up",
+          "items": [
+            {
+              "amount": "12,000",
+              "badge": "Start here",
+              "buttonStyle": "ghost",
+              "buttonTarget": "contact",
+              "featured": false,
+              "includes": [
+                "Classes with experienced teachers",
+                "Books and practice sheets",
+                "JLPT/NAT preparation",
+                "Regular assessments"
+              ],
+              "name": "N5",
+              "sub": "The first step in Japanese",
+              "unit": "BDT"
+            },
+            {
+              "amount": "15,000",
+              "badge": "Most popular",
+              "buttonStyle": "primary",
+              "buttonTarget": "register",
+              "featured": true,
+              "includes": [
+                "Complete N5 through N4",
+                "Dedicated speaking classes",
+                "JLPT/JFT preparation",
+                "Skill test guidance"
+              ],
+              "name": "N4",
+              "sub": "The level required for the SSW visa",
+              "unit": "BDT"
+            },
+            {
+              "amount": "20,000",
+              "badge": "",
+              "buttonStyle": "ghost",
+              "buttonTarget": "contact",
+              "featured": false,
+              "includes": [
+                "Full preparation targeting JFT-Basic",
+                "Mock tests and practice",
+                "Speaking and listening practice",
+                "Help applying for the exam"
+              ],
+              "name": "JFT",
+              "sub": "Preparation for the JFT-Basic exam",
+              "unit": "BDT"
+            }
+          ],
+          "note": "Visa fees, medical, and airfare are government-set and outside this fee. Contact us for an exact cost breakdown based on your eligibility.",
+          "type": "fees"
+        }
+      ],
+      "id": "fees",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "jqrq2rb",
+          "text": "Process",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "out8z8y",
+          "level": 2,
+          "text": "We're With You at Every Step",
+          "type": "heading"
+        },
+        {
+          "_k": "0c54kpg",
+          "items": [
+            {
+              "text": "Structured Japanese training targeting JLPT/JFT/NAT.",
+              "title": "Language Training"
+            },
+            {
+              "text": "Choosing the right institution based on your qualifications and goals.",
+              "title": "Institution Selection"
+            },
+            {
+              "text": "Complete support from document preparation to holding your visa.",
+              "title": "Visa Processing"
+            },
+            {
+              "text": "Step-by-step guidance toward employment and permanent residency after you arrive.",
+              "title": "Career in Japan"
+            }
+          ],
+          "type": "steps"
+        }
+      ],
+      "id": "process",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "jq7gzqu",
+          "text": "Frequently Asked Questions",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "f56ksgt",
+          "level": 2,
+          "text": "The Questions We Get Asked Most",
+          "type": "heading"
+        },
+        {
+          "_k": "foq5fyi",
+          "animation": "fade-up",
+          "items": [
+            {
+              "a": "There are three work visas. <strong>Engineer/Humanities</strong> — Graduate/Undergraduate degree, 1 year of experience and N5, age 22–40. <strong>SSW</strong> — N4 and a skill test, minimum SSC, age 18–35. <strong>TITP</strong> — N5, ongoing language study, minimum SSC, age 18–35. There's a separate student visa for studying.",
+              "q": "Which visa is right for me to go to Japan?"
+            },
+            {
+              "a": "Yes. You can work <strong>28 hours</strong> a week part-time alongside your studies — about 120 hours a month. Hourly pay in Japan is typically ¥1000–1200.",
+              "q": "Can I work on a student visa in Japan?"
+            },
+            {
+              "a": "There are three sessions a year — <strong>April, July, and October</strong>. It's best to start a few months ahead for paperwork and language prep.",
+              "q": "When are the admission sessions in Japan?"
+            },
+            {
+              "a": "No, every visa requires a minimum language level — N5 for TITP and Engineer visas, N4 for SSW. We provide structured training targeting JLPT/JFT/NAT.",
+              "q": "Can I go without knowing Japanese?"
+            },
+            {
+              "a": "On an Engineer/Humanities visa, you can bring your spouse after <strong>3 months</strong>. SSW-2 also allows bringing family. This isn't available on a TITP visa.",
+              "q": "Can I bring my family?"
+            },
+            {
+              "a": "On an Engineer/Humanities visa, you can apply for citizenship after <strong>5 years</strong>. On an SSW visa, that opportunity comes after <strong>10 years</strong> of work.",
+              "q": "Can I live in Japan permanently?"
+            },
+            {
+              "a": "Three offices — <strong>Dhaka</strong> (Arabian Tower, Shewrapara, Mirpur), <strong>Barishal</strong> (Kazi Bhavan, Nathullabad), and <strong>Tokyo</strong> (Kawaguchi-Shi, Saitama-ken). Phone +88 01689-447591.",
+              "q": "Where are your offices?"
+            }
+          ],
+          "type": "faq"
+        }
+      ],
+      "id": "faq",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "lia6h8u",
+          "text": "Recent",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "vhs7qik",
+          "level": 2,
+          "text": "Our Recent Activities",
+          "type": "heading"
+        },
+        {
+          "_k": "l52jvjt",
+          "style": "lead",
+          "text": "Classes, seminars, farewell send-offs — our everyday photos and videos.",
+          "type": "text"
+        },
+        {
+          "_k": "z4jsd1j",
+          "animation": "fade-up",
+          "columns": 3,
+          "frame": "soft",
+          "items": [
+            {
+              "date": "12 August 2026",
+              "height": 1000,
+              "kind": "image",
+              "src": "",
+              "tag": "Class",
+              "text": "Add a photo here and write a few lines about what happened.",
+              "title": "New Batch Classes Begin",
+              "width": 800
+            },
+            {
+              "date": "12 August 2026",
+              "kind": "image",
+              "src": "/uploads/post2-61fcd7dd.webp",
+              "tag": "Departure",
+              "text": "A moment from the students' farewell send-off.",
+              "title": "Departure for Japan"
+            },
+            {
+              "date": "12 August 2026",
+              "href": "https://www.facebook.com/share/p/18EF3mQq6e/",
+              "kind": "image",
+              "src": "",
+              "tag": "Seminar",
+              "text": "An open discussion on visas and admissions.",
+              "title": "Information Seminar"
+            }
+          ],
+          "type": "media"
+        }
+      ],
+      "id": "media",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "3mae5nu",
+          "text": "Our Offices",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "pmj4yg2",
+          "level": 2,
+          "text": "Dhaka · Barishal · Tokyo",
+          "type": "heading"
+        },
+        {
+          "_k": "5f6p50q",
+          "items": [
+            {
+              "address": "Shewrapara Metro Station, Pillar No. 315–316,<br>Arabian Tower, 849/3 Begum Rokeya Sarani,<br>Shewrapara, Mirpur, Dhaka",
+              "city": "Dhaka",
+              "country": "BD",
+              "flag": "🇧🇩",
+              "name": "Dhaka Office",
+              "phones": [
+                "+88 01689-447591",
+                "+88 01960-083748"
+              ],
+              "postal": "1216",
+              "region": "Dhaka Division"
+            },
+            {
+              "address": "Kazi Bhavan, Nathullabad, C&amp;B Road,<br>Tematha Kazipara, Barishal",
+              "city": "Barishal",
+              "country": "BD",
+              "flag": "🇧🇩",
+              "name": "Barishal Office",
+              "phones": [
+                "+88 01689-447591"
+              ],
+              "postal": "8200",
+              "region": "Barishal Division"
+            },
+            {
+              "address": "〒332-0035<br>2-4-32-206 Nishiaoki, Kawaguchi-Shi,<br>Saitama-ken, Japan",
+              "city": "Kawaguchi",
+              "country": "JP",
+              "flag": "🇯🇵",
+              "name": "Tokyo Office",
+              "phones": [],
+              "postal": "332-0035",
+              "region": "Saitama"
+            }
+          ],
+          "type": "offices"
+        }
+      ],
+      "id": "offices",
+      "visible": true
+    },
+    {
+      "animation": "fade-up",
+      "blocks": [
+        {
+          "_k": "sro95iv",
+          "text": "Contact",
+          "type": "eyebrow"
+        },
+        {
+          "_k": "v3650s2",
+          "level": 2,
+          "text": "Get a Free Consultation",
+          "type": "heading"
+        },
+        {
+          "_k": "nfn91u1",
+          "style": "lead",
+          "text": "Tell us about your qualifications — let's talk about which visa is right for you.",
+          "type": "text"
+        },
+        {
+          "_k": "alw51jo",
+          "items": [
+            {
+              "href": "/register.html",
+              "label": "Registration form",
+              "style": "primary",
+              "text": "Give your name and phone — we'll reach out",
+              "title": "Register now"
+            },
+            {
+              "href": "https://wa.me/8801689447591",
+              "label": "Message on WhatsApp",
+              "style": "ghost",
+              "text": "Message us for a quick reply",
+              "title": "WhatsApp"
+            },
+            {
+              "href": "mailto:bdeducationcentre748@gmail.com?subject=Japan%20Visa%20Consultation",
+              "label": "Send an email",
+              "style": "ghost",
+              "text": "Write in with the details",
+              "title": "Email"
+            }
+          ],
+          "type": "contactCards"
+        }
+      ],
+      "id": "contact",
+      "visible": true
+    }
+  ],
+  "seo": {
+    "description": "Barishal's first and most recognized Japan education consultancy. Student visas, Engineer/SSW/TITP work visas, Japanese language training, and permanent residency — offices in Dhaka, Barishal, and Tokyo. Get a free consultation.",
+    "foundingClaim": "Barishal's first and most recognized Japan education consultancy",
+    "keywords": [
+      "Japan student visa",
+      "Japan work visa",
+      "SSW visa Bangladesh",
+      "TITP visa",
+      "Japanese language classes Barishal",
+      "higher education in Japan",
+      "BD Education Centre",
+      "Barishal Japan consultancy"
+    ],
+    "ogDescription": "From Student Visa to Work Visa (Engineer, SSW, TITP) — complete support from choosing an institution to holding your visa, employment, and permanent residency.",
+    "ogTitle": "BD Education Centre — Barishal's First Japan Education Consultancy",
+    "title": "Higher Education & Work Visa in Japan | BD Education Centre"
+  },
+  "version": 1
+}

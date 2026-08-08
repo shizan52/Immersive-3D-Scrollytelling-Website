@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>BD Education Centre — Content Panel</title>
+<link rel="icon" href="/preview/favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#0d1117; --bg2:#151b24; --bg3:#1c2430; --line:#2a3441;
+  --fg:#e8edf5; --muted:#93a1b5; --dim:#64748b;
+  --accent:#ff5d8f; --accent2:#63e6ff; --ok:#3fb950; --warn:#d29922; --danger:#f85149;
+  --r:10px; --shadow:0 18px 44px -22px rgb(0 0 0/.85);
+  --bn:'Hind Siliguri','Segoe UI',system-ui,sans-serif;
+  --mono:ui-monospace,'Cascadia Code',Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html,body{height:100%}
+body{font-family:var(--bn);background:var(--bg);color:var(--fg);font-size:14.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:2px;border-radius:4px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#2b3543;border-radius:6px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:#3a4756}
+
+/* ---------- primitives ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;cursor:pointer;
+  padding:.5rem .9rem;border:1px solid var(--line);border-radius:8px;background:var(--bg3);
+  font-size:.88rem;font-weight:600;white-space:nowrap;transition:.15s}
+.btn:hover:not(:disabled){border-color:#3d4a5c;background:#232d3a}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:linear-gradient(135deg,var(--accent),#ff8f6b);border-color:transparent;color:#fff}
+.btn.primary:hover:not(:disabled){filter:brightness(1.08)}
+.btn.ok{background:var(--ok);border-color:transparent;color:#04140a}
+.btn.danger{background:transparent;border-color:#5c2b2b;color:#ff9a92}
+.btn.danger:hover:not(:disabled){background:#3a1d1d}
+.btn.ghost{background:transparent}
+.btn.sm{padding:.3rem .6rem;font-size:.8rem;border-radius:6px}
+.btn.icon{padding:.35rem .5rem;font-size:.85rem;line-height:1}
+
+.pill{display:inline-block;padding:.12rem .5rem;border-radius:999px;background:var(--bg3);
+  border:1px solid var(--line);font-size:.72rem;font-weight:600;color:var(--muted)}
+.pill.on{background:rgb(63 185 80/.15);border-color:#2a5d33;color:#7ee787}
+.pill.off{background:rgb(210 153 34/.14);border-color:#5c4a1e;color:#e3b341}
+
+label.lbl{display:block;font-size:.78rem;font-weight:600;color:var(--muted);
+  margin-bottom:.3rem;letter-spacing:.01em}
+.in,textarea.in,select.in{width:100%;padding:.5rem .65rem;background:var(--bg);
+  border:1px solid var(--line);border-radius:7px;font-size:.9rem}
+.in:focus,textarea.in:focus{border-color:var(--accent2);outline:none}
+textarea.in{resize:vertical;min-height:4.5rem;line-height:1.65}
+.row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.grid2{display:grid;gap:.75rem;grid-template-columns:1fr 1fr}
+.grid3{display:grid;gap:.75rem;grid-template-columns:repeat(3,1fr)}
+.muted{color:var(--muted)}.dim{color:var(--dim)}
+.small{font-size:.82rem}
+.mono{font-family:var(--mono);font-size:.8rem}
+
+/* ---------- shell ---------- */
+#login{position:fixed;inset:0;display:grid;place-items:center;z-index:100;
+  background:radial-gradient(90% 70% at 50% 20%,#16202e,#0a0e14)}
+.login-card{width:min(23rem,92vw);background:var(--bg2);border:1px solid var(--line);
+  border-radius:16px;padding:2rem;box-shadow:var(--shadow)}
+.login-card h1{font-size:1.15rem;margin-bottom:.2rem}
+.login-card .mark{font-size:1.9rem;color:var(--accent);line-height:1;margin-bottom:.7rem}
+
+#app{display:none;grid-template-rows:auto 1fr;height:100vh}
+#app.on{display:grid}
+.top{display:flex;align-items:center;gap:.75rem;padding:.6rem 1rem;
+  border-bottom:1px solid var(--line);background:var(--bg2)}
+.top__brand{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:.95rem}
+.top__brand span{color:var(--accent);font-size:1.15rem}
+.tabs{display:flex;gap:.25rem;margin-inline-start:.5rem}
+.tab{padding:.42rem .8rem;border-radius:7px;background:transparent;border:1px solid transparent;
+  cursor:pointer;font-size:.87rem;font-weight:600;color:var(--muted)}
+.tab:hover{background:var(--bg3);color:var(--fg)}
+.tab.active{background:var(--bg3);border-color:var(--line);color:var(--fg)}
+.spacer{flex:1}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden}
+.main.solo{grid-template-columns:minmax(0,1fr)}
+.pane{overflow-y:auto;padding:1rem 1.1rem 5rem}
+.pane--preview{border-inline-start:1px solid var(--line);background:#0a0e14;padding:0;overflow:hidden;
+  display:grid;grid-template-rows:auto 1fr}
+.prev-bar{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;
+  border-bottom:1px solid var(--line);background:var(--bg2);font-size:.8rem}
+.prev-frame{border:none;width:100%;height:100%;background:#fff}
+.prev-frame.mobile{width:390px;margin:0 auto;border-inline:1px solid var(--line)}
+
+/* ---------- page map: the six parts of the site, in the order they appear ---------- */
+.map{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.9rem;padding-bottom:.8rem;
+  border-bottom:1px dashed var(--line)}
+.map__btn{padding:.35rem .6rem;border-radius:999px;border:1px solid var(--line);
+  background:var(--bg2);color:var(--muted);font-size:.78rem;cursor:pointer;white-space:nowrap}
+.map__btn:hover{background:var(--bg3);color:var(--fg)}
+.map__btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.part{margin-bottom:.55rem}
+.part__head{padding:.7rem .8rem;align-items:flex-start}
+.part__icon{font-size:1.15rem;line-height:1.2;flex:none}
+.part__where{display:block;font-size:.75rem;font-weight:400;color:var(--dim);margin-top:.1rem}
+.part__what{margin:0 0 .9rem;padding:.5rem .7rem;border-inline-start:2px solid var(--accent2);
+  background:var(--bg3);border-radius:0 6px 6px 0;font-size:.8rem;color:var(--muted);line-height:1.6}
+
+/* ---------- section / block cards ---------- */
+.sec{border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);margin-bottom:.7rem;
+  overflow:hidden}
+.sec__head{display:flex;align-items:center;gap:.5rem;padding:.55rem .7rem;cursor:pointer;
+  background:var(--bg2);user-select:none}
+.sec__head:hover{background:var(--bg3)}
+.sec__grip{color:var(--dim);cursor:grab;font-size:1rem;line-height:1;padding:0 .1rem}
+.sec__title{font-weight:700;font-size:.92rem;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.sec__body{padding:.2rem .7rem .8rem;border-top:1px solid var(--line);background:#111823}
+.sec.closed .sec__body{display:none}
+.sec__chev{color:var(--dim);transition:transform .15s}
+.sec.closed .sec__chev{transform:rotate(-90deg)}
+
+.blk{border:1px solid var(--line);border-radius:8px;background:var(--bg2);margin-top:.5rem}
+.blk__head{display:flex;align-items:center;gap:.45rem;padding:.4rem .55rem;cursor:pointer;
+  user-select:none;font-size:.85rem}
+.blk__head:hover{background:var(--bg3)}
+.blk__type{font-family:var(--mono);font-size:.72rem;color:var(--accent2);background:rgb(99 230 255/.1);
+  padding:.1rem .4rem;border-radius:4px;border:1px solid rgb(99 230 255/.2)}
+.blk__peek{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+.blk__body{padding:.6rem .6rem .75rem;border-top:1px solid var(--line);display:grid;gap:.7rem}
+.blk.closed .blk__body{display:none}
+.blk.drag-over{border-color:var(--accent2);box-shadow:0 0 0 2px rgb(99 230 255/.25)}
+
+.sub{border:1px dashed var(--line);border-radius:7px;padding:.55rem;display:grid;gap:.55rem;
+  background:#0f1620}
+.sub__bar{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--muted)}
+details.sub>summary{cursor:pointer;font-size:.8rem;color:var(--muted);user-select:none}
+details.sub>summary:hover{color:var(--fg)}
+details.sub:not([open]){gap:0}
+
+.addbar{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem;padding-top:.6rem;
+  border-top:1px dashed var(--line)}
+.addbar .btn{font-size:.78rem;padding:.28rem .55rem}
+
+/* ---------- style controls ---------- */
+.styler{display:grid;gap:.55rem;padding:.55rem;border-radius:7px;background:#0f1620;
+  border:1px solid var(--line)}
+.styler__grid{display:grid;gap:.5rem;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr))}
+.swatches{display:flex;flex-wrap:wrap;gap:.28rem;align-items:center}
+.sw{inline-size:1.35rem;block-size:1.35rem;border-radius:5px;border:1px solid var(--line);
+  cursor:pointer;padding:0}
+.sw.on{outline:2px solid var(--accent2);outline-offset:1px}
+.sw--none{display:grid;place-items:center;font-size:.7rem;color:var(--dim);background:var(--bg)}
+input[type=color]{inline-size:2.1rem;block-size:1.6rem;padding:0;border:1px solid var(--line);
+  border-radius:5px;background:none;cursor:pointer}
+
+/* ---------- media picker ---------- */
+/* The drop zone is a <label> for a real file input. It has to be a label: a div that
+   calls input.click() works on desktop Chrome and silently does nothing on several phone
+   browsers, which is how "upload does not work" happened. */
+.drop{display:block;border:1.5px dashed var(--line);border-radius:9px;padding:1rem;
+  text-align:center;cursor:pointer;color:var(--muted);font-size:.85rem;transition:.15s;
+  background:#0f1620;-webkit-tap-highlight-color:transparent}
+.drop:hover,.drop.over{border-color:var(--accent2);color:var(--fg);background:#132030}
+.drop:active{border-color:var(--accent);color:var(--fg)}
+/* Clipped, NOT display:none — a file input that is not rendered cannot be opened by its
+   own label on iOS. It stays in the layout, one pixel, invisible. */
+.file-input{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+.file-input:focus-visible + .drop,.drop:has(+ .file-input:focus-visible){outline:2px solid var(--accent2);outline-offset:2px}
+.picker-err{margin:.1rem 0 0;padding:.5rem .65rem;border-radius:7px;font-size:.82rem;
+  line-height:1.6;color:#ffd9d4;background:rgb(200 60 60/.18);border:1px solid rgb(255 120 110/.4)}
+.thumb{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#000}
+.thumb img{display:block;width:100%;height:auto;max-height:11rem;object-fit:contain}
+.thumb__x{position:absolute;top:.3rem;right:.3rem}
+.lib{display:grid;gap:.4rem;grid-template-columns:repeat(auto-fill,minmax(5.5rem,1fr));max-height:16rem;
+  overflow-y:auto;padding:.2rem}
+.lib button{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#000;
+  cursor:pointer;padding:0;aspect-ratio:4/3}
+.lib button:hover{border-color:var(--accent2)}
+.lib img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- table editor ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:.83rem}
+.tbl th,.tbl td{border:1px solid var(--line);padding:0}
+.tbl input{width:100%;border:none;background:transparent;padding:.35rem .45rem;font-size:.83rem}
+.tbl input:focus{background:#132030;outline:none}
+.tblwrap{overflow-x:auto;border-radius:7px;border:1px solid var(--line)}
+
+/* ---------- registrations ---------- */
+.stat{display:grid;gap:.15rem;padding:.7rem .9rem;border:1px solid var(--line);border-radius:9px;
+  background:var(--bg2)}
+.stat b{font-size:1.5rem;line-height:1.1}
+.datatable{width:100%;border-collapse:collapse;font-size:.86rem}
+.datatable th{text-align:start;padding:.5rem .6rem;color:var(--muted);font-size:.76rem;
+  text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line)}
+.datatable td{padding:.5rem .6rem;border-bottom:1px solid #1b2430}
+.datatable tr:hover td{background:var(--bg2)}
+
+/* ---------- toast / modal ---------- */
+#toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%) translateY(2rem);
+  background:var(--bg3);border:1px solid var(--line);border-radius:9px;padding:.6rem 1rem;
+  font-size:.87rem;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;
+  transition:.25s;z-index:200;max-width:min(30rem,90vw)}
+#toast.on{opacity:1;transform:translateX(-50%)}
+#toast.err{border-color:#5c2b2b;color:#ff9a92}
+#toast.ok{border-color:#2a5d33;color:#7ee787}
+
+.modalbg{position:fixed;inset:0;background:rgb(4 8 14/.72);display:none;place-items:center;z-index:150;
+  padding:1rem;backdrop-filter:blur(3px)}
+.modalbg.on{display:grid}
+.modal{width:min(34rem,96vw);max-height:86vh;overflow-y:auto;background:var(--bg2);
+  border:1px solid var(--line);border-radius:14px;padding:1.2rem;box-shadow:var(--shadow)}
+.modal h3{font-size:1rem;margin-bottom:.8rem;display:flex;justify-content:space-between;gap:.5rem}
+
+.empty{padding:2rem 1rem;text-align:center;color:var(--dim);font-size:.87rem}
+.hidden{display:none!important}
+
+/* ---------- phones and tablets ----------
+   The whole panel has to work from a phone: every edit, and the published page visible
+   from the same device. There is not room for the editor and the preview side by side,
+   so they become two views with a switch that is always reachable. */
+@media (max-width:60rem){
+  .main{grid-template-columns:1fr}
+  .pane--preview{display:none}
+  .main.show-preview .pane--editor{display:none}
+  .main.show-preview .pane--preview{display:grid}
+
+  /* The header wraps rather than pushing Publish off the edge.
+     `min-width:0` matters: a flex item defaults to min-width:auto, so the tab strip
+     refused to shrink below its content and stretched the whole document to 758px on a
+     390px phone — which is what made the preview look zoomed in and cut off. */
+  .top{flex-wrap:wrap;gap:.4rem;padding:.5rem .6rem;max-inline-size:100vw}
+  .tabs{order:3;flex:1 0 100%;min-inline-size:0;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:.15rem}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{white-space:nowrap;flex:none}
+  .top__brand{min-inline-size:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* The spacer exists to push the buttons right on a wide screen; on a phone it only
+     stretches the header past the edge. */
+  .spacer{display:none}
+
+  .pane{padding:.7rem .7rem 6rem}
+  /* Comfortable tap targets — 24px icon buttons are a coin toss with a thumb. */
+  .btn{min-height:2.4rem}
+  .btn.icon,.btn.sm.icon{min-inline-size:2.4rem;min-height:2.4rem}
+  .in,select.in,textarea.in{font-size:16px}   /* 16px stops iOS zooming on focus */
+  .grid2,.grid3{grid-template-columns:1fr}
+  .drop{padding:1.35rem 1rem;font-size:.9rem}
+  .sec__head,.blk__head{padding-block:.7rem}
+  .datatable{font-size:.82rem}
+
+  /* One always-visible switch between editing and seeing the real page. */
+  .viewswap{position:fixed;inset-block-end:1rem;inset-inline:0;z-index:60;
+    display:flex;justify-content:center;pointer-events:none}
+  .viewswap button{pointer-events:auto;display:inline-flex;align-items:center;gap:.45rem;
+    padding:.7rem 1.3rem;border-radius:999px;border:1px solid var(--line);
+    background:var(--accent);color:#fff;font-weight:600;font-size:.9rem;
+    box-shadow:0 10px 30px -8px rgb(0 0 0/.7);cursor:pointer}
+}
+@media (min-width:60.01rem){ .viewswap{display:none} }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ login ══ -->
+<div id="login">
+  <form class="login-card" id="login-form">
+    <div class="mark">⛩</div>
+    <h1>Content Panel</h1>
+    <p class="muted small" style="margin-bottom:1.2rem">BD Education Centre</p>
+    <label class="lbl" for="pw">Password</label>
+    <input class="in" id="pw" type="password" autocomplete="current-password" autofocus>
+    <p class="small" id="login-err" style="color:#ff9a92;min-height:1.3em;margin:.4rem 0 .6rem"></p>
+    <button class="btn primary" style="width:100%" type="submit" id="login-btn">Log in</button>
+  </form>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ app ══ -->
+<div id="app">
+  <header class="top">
+    <div class="top__brand"><span>⛩</span> Content Panel</div>
+    <nav class="tabs" id="tabs"></nav>
+    <div class="spacer"></div>
+    <span class="pill" id="draft-pill">Saved</span>
+    <button class="btn sm ghost" id="btn-preview-toggle" title="Show/hide preview">👁</button>
+    <button class="btn sm" id="btn-discard">Discard</button>
+    <button class="btn primary sm" id="btn-publish">Publish</button>
+    <button class="btn sm ghost" id="btn-logout" title="Log out">⏻</button>
+  </header>
+
+  <div class="main" id="main">
+    <div class="pane pane--editor" id="view"></div>
+    <div class="pane pane--preview" id="preview">
+      <div class="prev-bar">
+        <strong class="small">Live preview</strong>
+        <span class="dim small" id="prev-status"></span>
+        <span class="spacer"></span>
+        <button class="btn sm ghost" data-vw="desktop">🖥</button>
+        <button class="btn sm ghost" data-vw="mobile">📱</button>
+        <button class="btn sm ghost" id="prev-reload">↻</button>
+      </div>
+      <iframe class="prev-frame" id="prev-frame" title="Site preview"></iframe>
+    </div>
+  </div>
+
+  <!-- Phones show one pane at a time, so the way back to the other one must always be
+       on screen — not hidden behind an icon in a header that has scrolled away. -->
+  <div class="viewswap">
+    <button type="button" id="btn-viewswap">👁 View site</button>
+  </div>
+</div>
+
+<div class="modalbg" id="modalbg"><div class="modal" id="modal"></div></div>
+<div id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   BD Education Centre — content panel
+
+   One file, no build step, no framework. It edits a single JSON document
+   (site.json) that the static-site build renders into the real page, and it
+   never writes HTML into the DOM from user data — every value goes in through
+   textContent or a form control, so nothing typed here can become markup.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+const S = {              // everything the panel knows
+  content: null,         // the working copy
+  clean: null,           // last saved, for the dirty check
+  tab: 'site',
+  open: new Set(['part:sections']),   // which cards are expanded; content first
+  regs: { items: [], total: 0, today: 0 },
+  uploads: [],
+  saving: false,
+};
+
+/* ---------------------------------------------------------------- utils */
+const clone = (o) => JSON.parse(JSON.stringify(o));
+const uid = () => Math.random().toString(36).slice(2, 9);
+const dirty = () => JSON.stringify(S.content) !== JSON.stringify(S.clean);
+
+function el(tag, props = {}, kids = []) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k === 'html') n.innerHTML = v;              // only ever our own markup
+    else if (k.startsWith('on') && typeof v === 'function') n.addEventListener(k.slice(2), v);
+    else if (k === 'style' && typeof v === 'object') Object.assign(n.style, v);
+    else n.setAttribute(k, v === true ? '' : v);
+  }
+  for (const k of [].concat(kids)) if (k) n.append(k);
+  return n;
+}
+
+let toastTimer;
+function toast(msg, kind = '') {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.className = 'on ' + kind;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.className = kind; }, 3200);
+}
+
+function modal(title, body, actions = []) {
+  const m = $('#modal');
+  m.textContent = '';
+  const head = el('h3', {}, [el('span', { text: title }),
+    el('button', { class: 'btn sm ghost', text: '✕', onclick: closeModal })]);
+  const foot = el('div', { class: 'row', style: { justifyContent: 'flex-end', marginTop: '1rem' } },
+    actions.map(a => el('button', { class: 'btn ' + (a.kind || ''), text: a.label, onclick: a.run })));
+  m.append(head, body, foot);
+  $('#modalbg').classList.add('on');
+}
+const closeModal = () => $('#modalbg').classList.remove('on');
+$('#modalbg').addEventListener('click', (e) => { if (e.target.id === 'modalbg') closeModal(); });
+
+function confirmBox(title, message, okLabel = 'Yes') {
+  return new Promise((res) => {
+    modal(title, el('p', { class: 'muted small', text: message }), [
+      { label: 'No', run: () => { closeModal(); res(false); } },
+      { label: okLabel, kind: 'danger', run: () => { closeModal(); res(true); } },
+    ]);
+  });
+}
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, {
+    headers: opts.body instanceof FormData ? {} : { 'Content-Type': 'application/json' },
+    ...opts,
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || ('HTTP ' + r.status));
+  return j;
+}
+
+/* ═══════════════════════════════════════════════════════════════ login */
+$('#login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = $('#login-btn');
+  btn.disabled = true;
+  $('#login-err').textContent = '';
+  try {
+    await api('/api/login', { method: 'POST', body: JSON.stringify({ password: $('#pw').value }) });
+    await boot();
+  } catch (err) {
+    $('#login-err').textContent = err.message;
+    $('#pw').select();
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+$('#btn-logout').addEventListener('click', async () => {
+  if (dirty() && !await confirmBox('Unsaved changes', 'You have unsaved changes. They will be lost if you log out.', 'Log out')) return;
+  await api('/api/logout', { method: 'POST' });
+  location.reload();
+});
+
+async function boot() {
+  const { content } = await api('/api/content');
+  S.content = content;
+  S.clean = clone(content);
+  $('#login').style.display = 'none';
+  $('#app').classList.add('on');
+  renderTabs();
+  render();
+  refreshPreview();
+}
+
+/* ═════════════════════════════════════════════════════════════ autosave */
+let saveTimer;
+function touch({ preview = true } = {}) {
+  $('#draft-pill').textContent = 'Saving…';
+  $('#draft-pill').className = 'pill off';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    try {
+      await api('/api/content', { method: 'PUT', body: JSON.stringify({ content: S.content }) });
+      S.clean = clone(S.content);
+      $('#draft-pill').textContent = 'Draft saved';
+      $('#draft-pill').className = 'pill on';
+      if (preview) refreshPreview();
+    } catch (err) {
+      $('#draft-pill').textContent = 'Save failed';
+      $('#draft-pill').className = 'pill off';
+      toast(err.message, 'err');
+    }
+  }, 500);
+}
+
+addEventListener('beforeunload', (e) => { if (dirty()) { e.preventDefault(); e.returnValue = ''; } });
+
+/* ═════════════════════════════════════════════════════════════ preview */
+let prevTimer;
+
+/**
+ * Put the preview back where the editor was looking.
+ *
+ * `onload` fires long before the deferred stylesheet, the webfonts and the
+ * `content-visibility` sections have laid out. At that instant the document is barely
+ * taller than the hero, so the browser CLAMPS any scroll to it — and one restore attempt
+ * therefore always landed just below the hero, on every single keystroke. That is what
+ * made the preview look like it refused to scroll any further down the page.
+ *
+ * So keep asking until the page has grown enough to honour the position, then stop.
+ */
+function restoreScroll(frame, target) {
+  if (!target) return;
+  let tries = 0;
+  const tick = () => {
+    const w = frame.contentWindow;
+    if (!w || tries++ > 40) return;              // ~2s ceiling, then give up quietly
+    try {
+      w.scrollTo(0, target);
+      if (Math.abs(w.scrollY - target) > 2) setTimeout(tick, 50);
+    } catch (_) { /* frame replaced mid-flight */ }
+  };
+  tick();
+}
+
+function refreshPreview() {
+  clearTimeout(prevTimer);
+  $('#prev-status').textContent = 'Updating…';
+  // A reload re-downloads and re-initialises the whole 3D scene, so it waits for a real
+  // pause in typing rather than firing between two keystrokes.
+  prevTimer = setTimeout(() => {
+    const f = $('#prev-frame');
+    const keep = f.contentWindow?.scrollY || 0;
+    f.src = '/preview/?t=' + Date.now();
+    f.onload = () => {
+      // If the editor is focused on a particular part of the page, go back to THAT
+      // rather than to a pixel offset — the page may be a different length now.
+      if (typeof reaimPreview === 'function' && reaimPreview.anchored?.()) reaimPreview();
+      else restoreScroll(f, keep);
+      $('#prev-status').textContent = '';
+    };
+  }, 900);
+}
+$('#prev-reload').addEventListener('click', refreshPreview);
+$$('[data-vw]').forEach(b => b.addEventListener('click', () => {
+  $('#prev-frame').classList.toggle('mobile', b.dataset.vw === 'mobile');
+}));
+/**
+ * Editing and looking, on one screen.
+ *
+ * On a phone there is only room for one of them, so this swaps between the two and says
+ * which one it will take you to. It also refreshes the preview on the way in — on a phone
+ * the preview is usually out of sight while you type, so it can be several edits stale.
+ */
+$('#btn-viewswap').addEventListener('click', () => {
+  const m = $('#main');
+  const goingToPreview = !m.classList.contains('show-preview');
+  m.classList.toggle('show-preview', goingToPreview);
+  $('#btn-viewswap').textContent = goingToPreview ? '✎ Back to editing' : '👁 View site';
+  if (goingToPreview) refreshPreview();
+});
+
+$('#btn-preview-toggle').addEventListener('click', () => {
+  const m = $('#main');
+  m.classList.toggle('solo');
+  m.classList.toggle('show-preview');
+});
+
+/* ═════════════════════════════════════════════════════════════ publish */
+$('#btn-publish').addEventListener('click', async () => {
+  const btn = $('#btn-publish');
+  btn.disabled = true;
+  btn.textContent = 'Publishing…';
+  try {
+    clearTimeout(saveTimer);
+    await api('/api/content', { method: 'PUT', body: JSON.stringify({ content: S.content }) });
+    const r = await api('/api/publish', { method: 'POST' });
+    S.clean = clone(S.content);
+    $('#draft-pill').textContent = 'Published';
+    $('#draft-pill').className = 'pill on';
+    toast(`Published — ${r.seconds}s`, 'ok');
+    refreshPreview();
+
+    // Saying "published" over a picture that is not actually there is how you end up
+    // staring at the live site wondering why the image you just added is missing.
+    if (r.missing?.length) {
+      modal('Some images are missing', el('div', {}, [
+        el('p', { class: 'small', text:
+          'The page has been published, but the files below are missing on the server — '
+          + 'those spots will show blank. Please re-upload the images.' }),
+        el('ul', { class: 'small mono', style: { margin: '.6rem 0 0', paddingInlineStart: '1.1rem' } },
+          r.missing.map(m => el('li', { text: m }))),
+      ]), []);
+    }
+  } catch (err) {
+    toast(err.message, 'err');
+    if (err.message.includes('build')) modal('Build failed',
+      el('pre', { class: 'mono', style: { whiteSpace: 'pre-wrap', color: '#ff9a92' }, text: err.detail || '' }), []);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Publish';
+  }
+});
+
+$('#btn-discard').addEventListener('click', async () => {
+  if (!await confirmBox('Discard draft?', 'This will revert to the last published version. All unsaved changes will be lost.', 'Discard')) return;
+  const { content } = await api('/api/discard', { method: 'POST' });
+  S.content = content;
+  S.clean = clone(content);
+  render();
+  refreshPreview();
+  toast('Draft discarded', 'ok');
+});
+
+/* ═══════════════════════════════════════════════════════════════ tabs */
+// Everything that makes up the public page is one tab now, in page order. It used to be
+// four ("Page content", "Hero", "Brand & SEO", "Footer & menu"), which meant knowing
+// which tab owned which part of the screen before you could change anything.
+const TABS = [
+  ['site', '🏠 Edit site'],
+  ['register', '📝 Registration form'],
+  ['leads', '👥 Registrations'],
+  ['knowledge', '🤖 AI knowledge'],
+  ['settings', '⚙ Settings'],
+];
+
+function renderTabs() {
+  const n = $('#tabs');
+  n.textContent = '';
+  TABS.forEach(([k, label]) => n.append(el('button', {
+    class: 'tab' + (S.tab === k ? ' active' : ''), text: label,
+    onclick: () => { S.tab = k; renderTabs(); render(); },
+  })));
+}
+
+function render() {
+  const v = $('#view');
+  v.textContent = '';
+  ({
+    site: renderSite,
+    register: renderRegisterTab, leads: renderLeads, knowledge: renderKnowledge,
+    settings: renderSettings,
+  })[S.tab](v);
+}
+</script>
+<script src="/admin-blocks.js"></script>
+</body>
+</html>

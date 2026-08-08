@@ -1,0 +1,22 @@
+{
+  "name": "bdec-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BD Education Centre — Japan education & visa consultancy site with a scroll-driven Tokyo street hero.",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs watch",
+    "serve": "node build.mjs serve",
+    "asset": "node build.mjs asset",
+    "all": "node build.mjs asset && node build.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.0.0",
+    "@gltf-transform/extensions": "^4.0.0",
+    "@gltf-transform/functions": "^4.0.0",
+    "esbuild": "^0.24.0",
+    "meshoptimizer": "^0.22.0",
+    "three": "0.160.1"
+  }
+}
